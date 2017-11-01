@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.*;
 import org.assertj.core.data.Offset;
 import org.junit.Test;
 
+import java.util.concurrent.ExecutionException;
+
 public class MeasurableTest {
     private static final Offset<Double> ACCURACY = Offset.offset(0.0001);
     private static final double POSITIVE_VALUE = 5.0;
@@ -43,19 +45,19 @@ public class MeasurableTest {
         height = new Foot(height);
     }
 
-    public void thenTheHeightInMetresShouldBe(double value) {
+    private void thenTheHeightInMetresShouldBe(double value) {
         assertThat(height.getMetres()).isCloseTo(value, ACCURACY);
     }
 
-    public void thenTheHeightInCentimetresShouldBe(double value) {
+    private void thenTheHeightInCentimetresShouldBe(double value) {
         assertThat(height.getCentimetres()).isCloseTo(value, ACCURACY);
     }
 
-    public void thenTheHeightInInchesShouldBe(double value) {
+    private void thenTheHeightInInchesShouldBe(double value) {
         assertThat(height.getInches()).isCloseTo(value, ACCURACY);
     }
 
-    public void thenTheHeightInFeetShouldBe(double value) {
+    private void thenTheHeightInFeetShouldBe(double value) {
         assertThat(height.getFeet()).isCloseTo(value, ACCURACY);
     }
 
@@ -109,5 +111,25 @@ public class MeasurableTest {
         final double value = 6;
         givenAHeightInFeet(value);
         thenTheHeightInFeetShouldBe(value);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testMetresInitializedFromNegativeValueShouldNotBePermitted() throws IllegalArgumentException {
+        givenAHeightInMetres(-3);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCentimetresInitializedFromNegativeValueShouldNotBePermitted() throws IllegalArgumentException {
+        givenAHeightInCentimetres(-4);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInchesInitializedFromNegativeValueShouldNotBePermitted() throws IllegalArgumentException {
+        givenAHeightInInches(-2);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testFootInitializedFromNegativeValueShouldNotBePermitted() throws IllegalArgumentException {
+        givenAHeightInFeet(-1);
     }
 }

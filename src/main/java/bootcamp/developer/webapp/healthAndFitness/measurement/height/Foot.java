@@ -5,6 +5,7 @@ public class Foot implements Measurable {
     private double value;
 
     public Foot(double value) {
+        if (value <= 0) throw new IllegalArgumentException("Can't have negative height");
         this.value = value;
     }
 

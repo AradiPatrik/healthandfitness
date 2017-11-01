@@ -1,7 +1,13 @@
 import bootcamp.developer.webapp.healthAndFitness.WeightCategory;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        WeightCategory.getWeightCategoryFromBMI(30);
+        System.out.println("BMI calculator");
+        System.out.println("Please enter your height: ");
+        Scanner scanner = new Scanner(System.in);
+        double height = scanner.nextDouble();
+
     }
 }

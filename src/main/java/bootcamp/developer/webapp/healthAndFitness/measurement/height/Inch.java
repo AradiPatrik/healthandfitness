@@ -4,6 +4,7 @@ public class Inch implements Measurable {
     private double value;
 
     public Inch(double value) {
+        if (value <= 0) throw new IllegalArgumentException("Can't have negative height");
         this.value = value;
     }
 
@@ -15,5 +16,4 @@ public class Inch implements Measurable {
     public double getInches() {
         return this.value;
     }
-
 }
