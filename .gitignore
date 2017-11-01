@@ -50,3 +50,4 @@ fabric.properties
 # Additional ignores
 /.idea/
 /healthandfitness.iml
+/target/
