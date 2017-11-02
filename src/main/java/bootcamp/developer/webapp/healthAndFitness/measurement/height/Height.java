@@ -2,7 +2,7 @@ package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
 /**
  * This Height class represents a height measurement
- * it provides getters and setters for some metric and imperial measurement
+ * it provides getters and for some metric and imperial measurement
  * Every sub class should set all of its data members
  */
 public abstract class Height {
