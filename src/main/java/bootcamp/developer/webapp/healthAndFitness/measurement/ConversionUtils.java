@@ -1,5 +1,9 @@
 package bootcamp.developer.webapp.healthAndFitness.measurement;
 
+/**
+ * This ConversionUtils class contains methods for converting from
+ * one unit of measurement to an other compatible units of measurement
+ */
 public class ConversionUtils {
 
     private static final double CENTIMETRES_IN_METRE = 100.0;

@@ -2,6 +2,9 @@ package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
 import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
+/**
+ * This Inch class represents a height measurement in Inches
+ */
 public class Inch extends Height{
 
     public Inch(double value) {

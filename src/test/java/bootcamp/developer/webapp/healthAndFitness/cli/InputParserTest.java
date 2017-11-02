@@ -81,6 +81,11 @@ public class InputParserTest {
     }
 
     @Test
+    public void testParserShouldDeniInputWhenKilogramsFollowMetres() {
+        assertThat(parser.isValidWeight("32m 28kg")).isFalse();
+    }
+
+    @Test
     public void testGetInchesShouldReturnInchPartOfInput() {
         assertThat(parser.getInchesAsString("6'2\"")).isEqualToIgnoringCase("2\"");
     }
@@ -128,5 +133,15 @@ public class InputParserTest {
     @Test
     public void testParserShouldWorkWhenUsedWithMultipleImperialHeightUnits() {
         assertThat(parser.getHeightValue("6'6\"").getFeet()).isCloseTo(6.5, ACCURACY);
+    }
+
+    @Test
+    public void testParserShouldReturnAWeightOfOneKilogramGivenOneKilogramAsInput() {
+        assertThat(parser.getWeightValue("1kg").getKilograms()).isCloseTo(1, ACCURACY);
+    }
+
+    @Test
+    public void testParserShouldReturnAWeightOfTwoPoundsWehnGivenTwoPoundsAsInput() {
+        assertThat(parser.getWeightValue("2'").getPounds()).isCloseTo(2, ACCURACY);
     }
 }

@@ -2,6 +2,9 @@ package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
 import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
+/**
+ * This Foot class represents a measurement in Feet
+ */
 public class Foot extends Height {
 
     public Foot(double value) {

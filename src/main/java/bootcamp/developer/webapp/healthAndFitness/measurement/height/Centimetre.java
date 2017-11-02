@@ -2,6 +2,9 @@ package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
 import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
+/**
+ * This Centimetre class represents a height measurement in centimetres
+ */
 public class Centimetre extends Height {
 
     public Centimetre(double value) {

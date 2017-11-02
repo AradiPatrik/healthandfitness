@@ -1,5 +1,9 @@
 package bootcamp.developer.webapp.healthAndFitness.measurement.weight;
 
+/**
+ * This Weight class represents a weight measurement
+ * It provides methods for getting the weight in either imperial or metric units
+ */
 public abstract class Weight {
     protected double kilograms;
     protected double pounds;

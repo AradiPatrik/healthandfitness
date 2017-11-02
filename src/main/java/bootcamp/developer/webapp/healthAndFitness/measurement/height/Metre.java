@@ -2,6 +2,9 @@ package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
 import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
+/**
+ * This Metre class represents a height in metres
+ */
 public class Metre extends Height {
 
     public Metre(double value) {
