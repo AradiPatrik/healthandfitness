@@ -12,7 +12,12 @@ public class Metre extends Height {
         this.inches = ConversionUtils.convertCentimetresToInches(this.centimetres);
     }
 
-    public Metre(Height height) {
+    public Metre(final Height height) {
         this(height.getMetres());
+    }
+
+    @Override
+    public Height add(final Height other) {
+        return new Metre(this.getMetres() + other.getMetres());
     }
 }

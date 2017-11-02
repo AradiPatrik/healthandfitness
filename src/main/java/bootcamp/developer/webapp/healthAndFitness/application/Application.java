@@ -1,25 +1,45 @@
 package bootcamp.developer.webapp.healthAndFitness.application;
 
-import bootcamp.developer.webapp.healthAndFitness.cli.CommandLineReader;
+import bootcamp.developer.webapp.healthAndFitness.cli.InputReader;
 import bootcamp.developer.webapp.healthAndFitness.cli.CommandLineWriter;
-import bootcamp.developer.webapp.healthAndFitness.cli.InputParser;
+import bootcamp.developer.webapp.healthAndFitness.measurement.height.Height;
+
+import java.io.IOException;
 
 public class Application {
 
-    private CommandLineReader reader;
+    private InputReader reader;
     private CommandLineWriter writer;
-    private InputParser parser;
 
     public Application() {
-        this.reader = new CommandLineReader();
+        this.reader = new InputReader(System.in);
         this.writer = new CommandLineWriter();
-        this.parser = new InputParser();
     }
 
     public void start() {
         writer.printWelcomeMessage();
         writer.printInstructions();
-        writer.displayHeightPrompt();
+    }
+
+    public void gameLoop() {
+        boolean appShouldClose = false;
+        do {
+            writer.displayHeightPrompt();
+
+        } while (!appShouldClose);
+    }
+
+    public Height tryToGetHeight() {
+        try {
+            return getHeight();
+        } catch (IOException ex) {
+            tryToGetHeight();
+        }
+        return null; // never reached
+    }
+
+    public Height getHeight() throws IOException{
+        return reader.getHeightFromCommandLine();
     }
 
 }

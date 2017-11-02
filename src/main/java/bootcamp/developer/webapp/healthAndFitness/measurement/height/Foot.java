@@ -4,7 +4,6 @@ import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
 public class Foot extends Height {
 
-
     public Foot(double value) {
         super(value);
         this.feet = value;
@@ -13,7 +12,12 @@ public class Foot extends Height {
         this.centimetres = ConversionUtils.convertMetresToCentimetres(this.metres);
     }
 
-    public Foot(Height height) {
+    public Foot(final Height height) {
         this(height.getFeet());
+    }
+
+    @Override
+    public Height add(Height other) {
+        return new Foot(this.getFeet() + other.getFeet());
     }
 }

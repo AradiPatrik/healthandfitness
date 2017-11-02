@@ -26,4 +26,31 @@ public abstract class Height {
     public double getFeet() {
         return feet;
     }
+
+    public abstract Height add(final Height other);
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Height height = (Height) o;
+
+        return Math.abs(this.metres - height.metres) < 0.0001;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(metres);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(centimetres);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(inches);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(feet);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

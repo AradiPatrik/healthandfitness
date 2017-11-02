@@ -10,7 +10,7 @@ public class Kilogram extends Weight {
         this.pounds = ConversionUtils.convertKilogramsToPounds(this.kilograms);
     }
 
-    public Kilogram(Weight weight) {
+    public Kilogram(final Weight weight) {
         this(weight.getKilograms());
     }
 }

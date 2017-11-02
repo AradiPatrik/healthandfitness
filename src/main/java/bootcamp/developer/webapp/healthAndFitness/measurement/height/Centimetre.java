@@ -4,7 +4,6 @@ import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
 public class Centimetre extends Height {
 
-
     public Centimetre(double value) {
         super(value);
         this.centimetres = value;
@@ -13,7 +12,12 @@ public class Centimetre extends Height {
         this.inches = ConversionUtils.convertCentimetresToInches(this.centimetres);
     }
 
-    public Centimetre(Height height) {
+    public Centimetre(final Height height) {
         this(height.getCentimetres());
+    }
+
+    @Override
+    public Height add(Height other) {
+        return new Centimetre(this.getCentimetres() + other.getCentimetres());
     }
 }

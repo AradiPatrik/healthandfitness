@@ -12,6 +12,8 @@ public class HeightTest {
     private static final double POSITIVE_VALUE = 5.0;
 
     private Height height;
+    private Height other;
+    private Height result;
 
     private void givenAHeightInCentimetres(double value) {
         height = new Centimetre(value);
@@ -27,6 +29,10 @@ public class HeightTest {
 
     private void givenAHeightInFeet(double value) {
         height = new Foot(value);
+    }
+
+    private void givenAnOtherHeightInMetres(double value) {
+        other = new Metre(value);
     }
 
     private void whenConvertedToCentimetres() {
@@ -45,6 +51,10 @@ public class HeightTest {
         height = new Foot(height);
     }
 
+    private void whenAddedTogether() {
+        result = height.add(other);
+    }
+
     private void thenTheHeightInMetresShouldBe(double value) {
         assertThat(height.getMetres()).isCloseTo(value, ACCURACY);
     }
@@ -61,6 +71,9 @@ public class HeightTest {
         assertThat(height.getFeet()).isCloseTo(value, ACCURACY);
     }
 
+    private void thenTheResultInMetresShouldBe(double value) {
+        assertThat(result.getMetres()).isCloseTo(value, ACCURACY);
+    }
     @Test
     public void testConversionFromUnitToUnitShouldNotAffectHeight() {
         final double value = 1.8;
@@ -131,5 +144,13 @@ public class HeightTest {
     @Test(expected = IllegalArgumentException.class)
     public void testFootInitializedFromNegativeValueShouldNotBePermitted() throws IllegalArgumentException {
         givenAHeightInFeet(-1);
+    }
+
+    @Test
+    public void addingOneMeterWithOneMeterShouldResultTwoMetres() {
+        givenAHeightInMetres(1);
+        givenAnOtherHeightInMetres(1);
+        whenAddedTogether();
+        thenTheResultInMetresShouldBe(2);
     }
 }
