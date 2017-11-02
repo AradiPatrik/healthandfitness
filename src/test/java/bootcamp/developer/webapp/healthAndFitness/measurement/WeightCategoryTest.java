@@ -1,6 +1,8 @@
-package bootcamp.developer.webapp.healthAndFitness;
+package bootcamp.developer.webapp.healthAndFitness.measurement;
 
 import static org.assertj.core.api.Assertions.*;
+
+import bootcamp.developer.webapp.healthAndFitness.measurement.WeightCategory;
 import org.junit.Test;
 
 public class WeightCategoryTest {

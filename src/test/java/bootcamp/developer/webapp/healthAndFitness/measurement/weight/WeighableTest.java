@@ -8,7 +8,7 @@ import org.junit.Test;
 public class WeighableTest {
     
     private static final Offset<Double> ACCURACY = Offset.offset(0.00001);
-    private Weighable weight;
+    private Weight weight;
     
     private void givenWeightInKilograms(double value) {
         this.weight = new Kilogram(value);

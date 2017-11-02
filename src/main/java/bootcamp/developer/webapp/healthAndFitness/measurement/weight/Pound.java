@@ -1,19 +1,15 @@
 package bootcamp.developer.webapp.healthAndFitness.measurement.weight;
 
-public class Pound implements Weighable{
-    private double value;
-    
+import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
+
+public class Pound extends Weight {
     public Pound(double value) {
-        if (value < 0) throw new IllegalArgumentException("can't have negative weight");
-        this.value = value;
-    }
-    
-    public Pound(Weighable weighable) {
-        this.value = weighable.getPounds();
+        super(value);
+        this.pounds = value;
+        this.kilograms = ConversionUtils.convertPoundsToKilograms(this.pounds);
     }
 
-    @Override
-    public double getPounds() {
-        return this.value;
+    public Pound(Weight weight) {
+        this(weight.getPounds());
     }
 }

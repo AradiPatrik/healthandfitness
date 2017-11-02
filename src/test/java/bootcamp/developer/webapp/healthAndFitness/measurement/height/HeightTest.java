@@ -7,11 +7,11 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutionException;
 
-public class MeasurableTest {
+public class HeightTest {
     private static final Offset<Double> ACCURACY = Offset.offset(0.0001);
     private static final double POSITIVE_VALUE = 5.0;
 
-    private Measurable height;
+    private Height height;
 
     private void givenAHeightInCentimetres(double value) {
         height = new Centimetre(value);

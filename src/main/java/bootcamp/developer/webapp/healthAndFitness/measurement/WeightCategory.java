@@ -1,4 +1,4 @@
-package bootcamp.developer.webapp.healthAndFitness;
+package bootcamp.developer.webapp.healthAndFitness.measurement;
 
 import java.util.Arrays;
 import java.util.Optional;

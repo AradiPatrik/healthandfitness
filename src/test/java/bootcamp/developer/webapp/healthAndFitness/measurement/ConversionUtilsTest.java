@@ -13,12 +13,12 @@ public class ConversionUtilsTest {
 
     @Test
     public void testOneMeterShouldBeHundredCentimeters() {
-        assertThat(convertMetersToCentimeters(1)).isCloseTo(100, ACCURACY);
+        assertThat(convertMetresToCentimetres(1)).isCloseTo(100, ACCURACY);
     }
 
     @Test
     public void testOneHundredCentimetersShouldBeOneMeters() {
-        assertThat(convertCentimetersToMeters(100)).isCloseTo(1, ACCURACY);
+        assertThat(convertCentimetresToMetres(100)).isCloseTo(1, ACCURACY);
     }
 
     @Test
@@ -33,12 +33,12 @@ public class ConversionUtilsTest {
 
     @Test
     public void testOneMeterShouldBe3_28084Feet() {
-        assertThat(convertMetersToFeet(1)).isCloseTo(3.28084, ACCURACY);
+        assertThat(convertMetresToFeet(1)).isCloseTo(3.28084, ACCURACY);
     }
 
     @Test
     public void oneFootShouldBe0_3048Meters() {
-        assertThat(convertFeetToMeters(1)).isCloseTo(0.3048, ACCURACY);
+        assertThat(convertFeetToMetres(1)).isCloseTo(0.3048, ACCURACY);
     }
 
     @Test
@@ -53,6 +53,6 @@ public class ConversionUtilsTest {
 
     @Test
     public void oneInchShouldBe2_54Centimetre() {
-        assertThat(convertInchesToCentimeters(1)).isCloseTo(2.54, ACCURACY);
+        assertThat(convertInchesToCentimetres(1)).isCloseTo(2.54, ACCURACY);
     }
 }

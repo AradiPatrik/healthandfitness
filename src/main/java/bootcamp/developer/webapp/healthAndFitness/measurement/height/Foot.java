@@ -1,20 +1,19 @@
 package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
-public class Foot implements Measurable {
+import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
 
-    private double value;
+public class Foot extends Height {
+
 
     public Foot(double value) {
-        if (value <= 0) throw new IllegalArgumentException("Can't have negative height");
-        this.value = value;
+        super(value);
+        this.feet = value;
+        this.inches = ConversionUtils.convertFeetToInches(this.feet);
+        this.metres = ConversionUtils.convertFeetToMetres(this.feet);
+        this.centimetres = ConversionUtils.convertMetresToCentimetres(this.metres);
     }
 
-    public Foot(Measurable measurable) {
-        this.value = measurable.getFeet();
-    }
-
-    @Override
-    public double getFeet() {
-        return this.value;
+    public Foot(Height height) {
+        this(height.getFeet());
     }
 }

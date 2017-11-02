@@ -1,19 +1,18 @@
 package bootcamp.developer.webapp.healthAndFitness.measurement.height;
 
-public class Inch implements Measurable {
-    private double value;
+import bootcamp.developer.webapp.healthAndFitness.measurement.ConversionUtils;
+
+public class Inch extends Height{
 
     public Inch(double value) {
-        if (value <= 0) throw new IllegalArgumentException("Can't have negative height");
-        this.value = value;
+        super(value);
+        this.inches = value;
+        this.feet = ConversionUtils.convertInchesToFeet(this.inches);
+        this.metres = ConversionUtils.convertFeetToMetres(this.feet);
+        this.centimetres = ConversionUtils.convertMetresToCentimetres(this.metres);
     }
 
-    public Inch(Measurable measurable) {
-        this.value = measurable.getInches();
-    }
-
-    @Override
-    public double getInches() {
-        return this.value;
+    public Inch(Height height) {
+        this(height.getInches());
     }
 }
